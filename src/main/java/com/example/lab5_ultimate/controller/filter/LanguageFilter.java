@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Locale;
 
-@WebFilter(filterName = "LanguageFilter", urlPatterns = {"/*"})
+//@WebFilter(filterName = "LanguageFilter", urlPatterns = {"/*"})
 public class LanguageFilter implements Filter {
 
     @Override
