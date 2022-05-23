@@ -27,7 +27,7 @@
                 href="${pageContext.request.contextPath}/library-servlet?action=log_out"><fmt:message key="menu.log_out"/></a></c:if>
     </nav>
 </header>
-<h2>Поиск по автору:</h2>
+<h2><fmt:message key="search.search_by_author"/></h2>
 <form id="search" name="search" method="get" action="library-servlet">
     <input name="action" value="search_books" style="visibility: hidden"/>
 </form>

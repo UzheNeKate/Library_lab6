@@ -14,7 +14,9 @@
 <body>
 <header>
     <nav>
-        <c:if test="${role=='user'}"><a href="${pageContext.request.contextPath}/library-servlet?action=take_book">Взять книгу</a></c:if>
+        <c:if test="${role=='user'}"><a
+                href="${pageContext.request.contextPath}/library-servlet?action=take_book"><fmt:message
+                key="menu.take_book"/></a></c:if>
         <c:if test="${role=='admin'}"><a href="${pageContext.request.contextPath}/library-servlet?action=load_debtors">
             <fmt:message key="menu.debtors"/> </a></c:if>
         <a href="${pageContext.request.contextPath}/library-servlet?action=load_search"><fmt:message
@@ -55,13 +57,10 @@
         <fmt:message key="index.welcome"/>
         <br/>
         <br/>
-        Мы рады приветствовать тебя в нашей библиотеке. Здесь ты сможешь найти
-        много захватывающих художественных произведений, а также изучить что-то
-        новое с помощью научной литературы.
+        <fmt:message key="index.introduction"/>
         <br/>
         <br/>
-        Если у тебя возникнут какие-то трудности, ты всегда можешь позвонить или
-        написать нам ❤️
+        <fmt:message key="index.troubles"/>️
         <br/>
         <br/>
         <strong><fmt:message key="index.contacts_header"/></strong>
