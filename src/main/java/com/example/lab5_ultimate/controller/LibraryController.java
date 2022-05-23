@@ -40,10 +40,10 @@ public class LibraryController {
      * @param author author of the book
      * @return number of items
      */
-    public int GetNumberOfBook(String title, String author) throws ControllerException {
+    public BookEntity GetNumberOfBook(String title, String author) throws ControllerException {
         try {
             logger.info("Controller: getting book by name");
-            return bookDao.getBookByName(title, author).getNumOfItems();
+            return bookDao.getBookByName(title, author);
         } catch (DaoException e) {
             logger.error("Something wrong!" + e.getMessage());
             throw new ControllerException("Cannot get number of items for book " + title);
@@ -98,6 +98,14 @@ public class LibraryController {
         } catch (DaoException e) {
             logger.warn("Something wrong!" + e.getMessage());
             throw new ControllerException("Cannot give book");
+        }
+    }
+
+    public void deleteBook(int id) throws ControllerException {
+        try {
+            bookDao.removeItemBook(id);
+        } catch (DaoException e) {
+            throw new ControllerException("Cannot remove book");
         }
     }
 

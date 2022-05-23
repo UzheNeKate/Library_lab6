@@ -1,16 +1,40 @@
 import { createForm } from "../create.js";
 import { validate } from "../validate.js";
 
+let en = {
+  takeBook: 'Take book',
+  author: 'Author:',
+  incorrect_fio: 'Incorrect format fio',
+  title: 'Title:',
+  specSymbols: 'Cannot use special symbols',
+  take: 'Take'
+};
+
+let ru = {
+  takeBook: 'Взять книгу',
+  author: 'Автор:',
+  incorrect_fio: 'Некорректный формат ФИО',
+  title: '"Название книги:',
+  specSymbols: 'Запрещено использовать спецсимволы',
+  take: 'Взять'
+};
+
+function getLocale(lang) {
+  return lang === 'ru' ? ru : en;
+}
+
+let locale = getLocale(lang);
+
 const formConfig = [
   {
     tag: "h3",
-    tagText: "Взять книгу",
+    tagText: locale['takeBook'],
     style: {
       "margin-bottom": "8px",
       "font-size": "22px",
     },
   },
-  { tag: "p", tagText: "Автор:" },
+  { tag: "p", tagText: locale['author'] },
 
   {
     tag: "input",
@@ -26,7 +50,7 @@ const formConfig = [
 
   {
     tag: "p",
-    tagText: "Некорректный формат ФИО",
+    tagText: locale['incorrect_fio'],
     style: {
       height: "16px",
       color: "red",
@@ -34,7 +58,7 @@ const formConfig = [
       "font-size": "16px",
     },
   },
-  { tag: "p", tagText: "Название книги:" },
+  { tag: "p", tagText: locale['title'] },
   {
     tag: "input",
     name: "title",
@@ -49,7 +73,7 @@ const formConfig = [
 
   {
     tag: "p",
-    tagText: "Запрещено использовать спецсимволы",
+    tagText: locale['specSymbols'],
     style: {
       height: "16px",
       color: "red",
@@ -60,7 +84,7 @@ const formConfig = [
   {
     tag: "button",
     tagType: "submit",
-    tagText: "Взять",
+    tagText: locale['take'],
     style: {
       width: "70px",
       height: "34px",

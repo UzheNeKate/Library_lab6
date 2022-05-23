@@ -1,10 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:requestEncoding value="UTF-8"/>
+<fmt:setLocale value="${userLocale}"/>
+<fmt:setBundle basename="locale"/>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Библиотека</title>
+    <title><fmt:message key="app.title"/></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/index/index.css"/>
 </head>
 <body>
@@ -12,18 +16,43 @@
     <nav>
         <c:if test="${role=='user'}"><a href="${pageContext.request.contextPath}/library-servlet?action=take_book">Взять книгу</a></c:if>
         <c:if test="${role=='admin'}"><a href="${pageContext.request.contextPath}/library-servlet?action=load_debtors">
-            Должники </a></c:if>
-        <a href="${pageContext.request.contextPath}/library-servlet?action=load_search">Поиск по автору</a>
-        <a href="${pageContext.request.contextPath}/library-servlet?action=load_number">Количество экземпляров</a>
-        <c:if test="${role=='guest' || role==''}"><a href="${pageContext.request.contextPath}/registration/registration.jsp">Регистрация</a></c:if>
-        <c:if test="${role=='guest' || role==''}"><a href="${pageContext.request.contextPath}/log-in/log-in.jsp">Войти</a></c:if>
-        <c:if test="${role!='guest' && role!=''}"><a href="${pageContext.request.contextPath}/library-servlet?action=log_out">Выйти</a></c:if>
+            <fmt:message key="menu.debtors"/> </a></c:if>
+        <a href="${pageContext.request.contextPath}/library-servlet?action=load_search"><fmt:message
+                key="menu.search_by_author"/></a>
+        <a href="${pageContext.request.contextPath}/library-servlet?action=load_number"><fmt:message
+                key="menu.items_number"/></a>
+        <c:if test="${role!='guest' && role!=''}">
+            <a href="${pageContext.request.contextPath}/library-servlet?action=chat"><fmt:message
+                    key="menu.chat"/></a>
+        </c:if>
+        <c:if test="${role=='guest' || role==''}"><a
+                href="${pageContext.request.contextPath}/registration/registration.jsp"><fmt:message
+                key="menu.sign_up"/></a></c:if>
+        <c:if test="${role=='guest' || role==''}"><a
+                href="${pageContext.request.contextPath}/log-in/log-in.jsp"><fmt:message key="menu.sign_in"/></a></c:if>
+        <c:if test="${role!='guest' && role!=''}"><a
+                href="${pageContext.request.contextPath}/library-servlet?action=log_out"><fmt:message
+                key="menu.log_out"/></a></c:if>
     </nav>
 </header>
+<form>
+    <select name='lang' onchange='this.form.submit()'>
+        <c:choose>
+        <c:when test="${userLocale.language == 'ru'}">
+        <option value='ru' selected>Русский
+        <option value='en'>English
+            </c:when>
+            <c:otherwise>
+        <option value='ru'>Русский
+        <option value='en' selected>English
+            </c:otherwise>
+            </c:choose>
+    </select>
+</form>
 <div class="info-block">
-    <h2>БИБЛИОТЕКА</h2>
+    <h2><fmt:message key="app.title"/></h2>
     <p>
-        Добро пожаловать, дорогой читатель!
+        <fmt:message key="index.welcome"/>
         <br/>
         <br/>
         Мы рады приветствовать тебя в нашей библиотеке. Здесь ты сможешь найти
@@ -35,22 +64,22 @@
         написать нам ❤️
         <br/>
         <br/>
-        <strong>Контакты:</strong>
+        <strong><fmt:message key="index.contacts_header"/></strong>
         <br/>
-        Телефончик: +375-(44)-864-53-84
-        <time>(с 10:00 до 16:00)</time>
+        <fmt:message key="index.phone"/>
+        <time><fmt:message key="index.time"/></time>
         <br/>
-        Почтовый ящичек: library@puppy.com
-        <br/>
-        <br/>
-        <strong>Мы работаем по адресу:</strong>
-        <br/>
-        г. Минск, ул. Чюрлениса, д.1
-        <br/>
-        <time>с понедельника по пятницу с 10 до 19.</time>
+        <fmt:message key="index.mail"/>
         <br/>
         <br/>
-        Приятного чтения!
+        <strong><fmt:message key="index.address_work"/></strong>
+        <br/>
+        <fmt:message key="index.address"/>
+        <br/>
+        <time><fmt:message key="index.days"/></time>
+        <br/>
+        <br/>
+        <fmt:message key="index.have_nice_read"/>
     </p>
     <img src="${pageContext.request.contextPath}/index/dog.jpg" alt="dog"/>
 </div>

@@ -1,31 +1,38 @@
 package com.example.lab5_ultimate.controller.command;
 
 import com.example.lab5_ultimate.controller.LibraryController;
-import com.example.lab5_ultimate.model.entity.BookEntity;
 import com.example.lab5_ultimate.model.exception.ControllerException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 
-import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
-public class GetNumberBooksCommand implements Command {
+public class RemoveBookCommand implements Command {
+
     Map<String, String> authMap;
     LibraryController controller;
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        String author = request.getParameter("author");
-        String title = request.getParameter("title");
+        if(authMap == null) {
+            new LoadLoginCommand().execute(request, response);
+            return;
+        }
 
+        int bookId = Integer.parseInt(request.getParameter("bookId"));
+        String reader = authMap.getOrDefault("user", "");
+
+        if (reader.equals("")) {
+            new LoadLoginCommand().execute(request, response);
+            return;
+        }
         try {
-            BookEntity book = controller.GetNumberOfBook(title, author);
-            request.setAttribute("allBooks", List.of(book));
+            controller.deleteBook(bookId);
         } catch (ControllerException e) {
-            throw new ServletException("Cannot load number of books");
+            throw new ServletException("Cannot take book");
         }
         new LoadNumbersCommand(authMap).execute(request, response);
     }

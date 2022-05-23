@@ -1,5 +1,19 @@
 import {createForm} from "../create.js"
 
+let en = {
+  search: 'Search'
+};
+
+let ru = {
+  search: 'Поиск'
+};
+
+function getLocale(lang) {
+  return lang === 'ru' ? ru : en;
+}
+
+let locale = getLocale(lang);
+
 const formConfig = [
   {
     tag: "input",
@@ -26,7 +40,7 @@ const formConfig = [
   {
     tag: "button",
     tagType: "submit",
-    tagText: "Поиск",
+    tagText: locale['search'],
     style: {
       width: "100px",
       height: "30px",

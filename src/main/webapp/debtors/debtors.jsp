@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>List</title>
+  <title><fmt:message key="title.debtors"/></title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/debtors/debtors.css" />
 </head>
 <body>

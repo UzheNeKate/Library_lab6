@@ -1,4 +1,4 @@
-package com.example.lab5_ultimate.controller;
+package com.example.lab5_ultimate;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.example.lab5_ultimate.controller.LibraryController;
 import com.example.lab5_ultimate.controller.command.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -60,6 +61,10 @@ public class LibraryServlet extends HttpServlet {
                 break;
             case "search_books":
                 cmd = new GetBooksByAuthorCommand(authMap, controller);
+                break;
+            case "chat":
+                cmd = new LoadChatCommand(authMap);
+                break;
         }
         try {
             cmd.execute(request, response);
@@ -93,6 +98,8 @@ public class LibraryServlet extends HttpServlet {
             case "registration":
                 cmd = new RegistrationCommand(controller);
                 break;
+            case "remove_book":
+                cmd = new RemoveBookCommand(authMap, controller);
         }
         try {
             cmd.execute(request, response);

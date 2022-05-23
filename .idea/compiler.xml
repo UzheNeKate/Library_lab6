@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Lab5_Ultimate" target="9" />
+      <module name="Lab5_Ultimate" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
