@@ -1,10 +1,10 @@
 package com.example.lab5_ultimate.controller.tag;
 
 import com.example.lab5_ultimate.model.entity.BookEntity;
-import jakarta.servlet.jsp.JspException;
-import jakarta.servlet.jsp.JspWriter;
-import jakarta.servlet.jsp.PageContext;
-import jakarta.servlet.jsp.tagext.SimpleTagSupport;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import java.io.IOException;
 import java.util.List;

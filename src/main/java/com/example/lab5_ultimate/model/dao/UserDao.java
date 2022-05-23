@@ -3,13 +3,13 @@ package com.example.lab5_ultimate.model.dao;
 import com.example.lab5_ultimate.model.entity.UserEntity;
 import com.example.lab5_ultimate.model.entity.UserEntity_;
 import com.example.lab5_ultimate.model.exception.DaoException;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.PersistenceException;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 public class UserDao extends AbstractDao {
     public void signUp(String name, String password) throws DaoException {

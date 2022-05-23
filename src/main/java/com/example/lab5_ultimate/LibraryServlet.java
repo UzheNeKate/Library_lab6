@@ -8,9 +8,9 @@ import java.util.Map;
 
 import com.example.lab5_ultimate.controller.LibraryController;
 import com.example.lab5_ultimate.controller.command.*;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

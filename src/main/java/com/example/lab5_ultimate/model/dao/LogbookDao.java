@@ -4,11 +4,11 @@ import com.example.lab5_ultimate.model.entity.LogbookEntity;
 import com.example.lab5_ultimate.model.entity.LogbookEntity_;
 import com.example.lab5_ultimate.model.entity.ReaderEntity;
 import com.example.lab5_ultimate.model.exception.DaoException;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.PersistenceException;
-import jakarta.persistence.TypedQuery;
-import jakarta.persistence.criteria.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 
 import java.sql.Date;
 import java.time.LocalDate;

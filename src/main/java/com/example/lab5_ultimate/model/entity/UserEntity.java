@@ -1,6 +1,6 @@
 package com.example.lab5_ultimate.model.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users", schema = "public", catalog = "library")

@@ -3,10 +3,10 @@ package com.example.lab5_ultimate.model.dao;
 import com.example.lab5_ultimate.model.entity.ReaderEntity;
 import com.example.lab5_ultimate.model.entity.ReaderEntity_;
 import com.example.lab5_ultimate.model.exception.DaoException;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.PersistenceException;
-import jakarta.persistence.criteria.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
+import javax.persistence.criteria.*;
 
 import java.util.List;
 

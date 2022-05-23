@@ -1,9 +1,9 @@
 package com.example.lab5_ultimate.controller.filter;
 
 import com.example.lab5_ultimate.controller.command.LoadRegistrationCommand;
-import jakarta.servlet.*;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
