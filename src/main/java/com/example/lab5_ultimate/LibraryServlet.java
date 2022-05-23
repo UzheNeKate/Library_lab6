@@ -14,7 +14,7 @@ import jakarta.servlet.annotation.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@WebServlet(name = "libraryServlet", value = "/library-servlet")
+@WebServlet(name = "libraryServlet", urlPatterns ={ "/library-servlet", "/*/library-servlet"})
 public class LibraryServlet extends HttpServlet {
     private LibraryController controller;
 
